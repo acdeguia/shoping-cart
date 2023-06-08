@@ -252,3 +252,86 @@ color: #FBFBFB;
   height: 100vh;
   background-color: #C2AC8E;
 }
+
+.details-container {
+  width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  gap: 55px;
+}
+
+.img-details {
+  width: 297px;
+height: 387px;
+}
+
+.details-container h2 {
+  font-family: ivyMode-bold; 
+  font-size: 25px;
+  color: #425944;
+}
+
+.details-container p {
+  margin-top: 27px;
+  font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 35px;
+/* or 175% */
+
+text-align: justify;
+
+color: #191919;
+}
+
+.bag-btn {
+  width: 163px;
+height: 45px;
+background: #425944;
+border-radius: 2px;
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+color: #FBFBFB;
+margin-top: 45px;
+
+}
+
+/* CSS */
+.bag-btn {
+  color: #FBFBFB;
+  font-family: 'Mulish';
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 45px;
+}
+
+.bag-btn:after {
+  content: "";
+  background-color: #425944;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.bag-btn:hover:after {
+  top: 0px;
+  left: 0px;
+}
+

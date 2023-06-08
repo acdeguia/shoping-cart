@@ -1,13 +1,23 @@
-import React from 'react';
 
-const Product = ({ productId }) => {
-  // Fetch the product details using the `productId`
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Navbar from "./Navbar";
+
+const Product = () => {
+  const location = useLocation();
+  const { product } = location.state;
 
   return (
     <div>
-      <h2>Product Details</h2>
-      <p>Product ID: {productId}</p>
-      {/* Render the rest of the product details */}
+      <Navbar logotypeColor={"logo__1"} />
+      <div className="details-container">
+        <img className="img-details" src={product.src} alt={product.name} />
+        <div>
+            <h2>{product.name}</h2>
+            <p>{product.details}</p>
+            <button className="bag-btn">Add to Bag</button>
+        </div>
+      </div>
     </div>
   );
 };

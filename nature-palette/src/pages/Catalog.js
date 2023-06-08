@@ -22,7 +22,7 @@ function Catalog() {
 
   const products = [
     { id:'1', src: one, name: "ZZ Plant", remark: "Easy Care" },
-    { id:'2', src: two, name: "Large Fiddle Leaf Fig Tree", remark: "Best Sellers!" },
+    { id:'2', src: two, name: "Large Fiddle Leaf Fig Tree", remark: "Best Sellers!", details: "With their small, silvery, gray-green leaves, olive trees (this specific variety is the Common Olive Tree) make beautiful houseplants. These Mediterranean plants need a lot of bright, direct sunlight. South and west facing windows are ideal. Pet friendly. (Pro-tip: Olive branches make beautiful additions to bouquets, something to keep in mind as yours grows for years to come.)" },
     { id:'3', src: three, name: "Olive Tree", remark: "Pet Friendly" },
     { id:'4', src: four, name: "Large Bird of Paradise", remark: "Easy Care" },
     { id:'5', src: five, name: "Large Dracaena Warneckii", remark: "Low Fuss" },
