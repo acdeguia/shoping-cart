@@ -1,6 +1,13 @@
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+
+  const navigate = useNavigate();
+
+  const handleShopNow = () => {
+    navigate("/Catalog");
+  };
 
   return (
     <div className="home">
@@ -13,7 +20,9 @@ function Home() {
               Explore our extensive selection of hundreds of exquisite products. No
               matter how remote, we deliver to all areas.
             </p>
-            <a href="/catalog"><button className="shop-now" >Shop Now</button></a>
+            <button className="btn bag-btn" onClick={handleShopNow}>
+            Shop Now
+          </button>
         </div>
         
       </div>
