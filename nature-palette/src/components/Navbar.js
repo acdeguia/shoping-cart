@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import logomark from "../assets/logomark.svg";
 import cart from "../assets/cart.svg";
-import Cart from "./Cart";
 
 function Navbar({ logotypeColor, homeLi, catalogLi }) {
 
   const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
-
-    const openCart = () => {
-      setShowCart(true);
-    };
-  
-    const closeCart = () => {
-      setShowCart(false);
-    };
 
     const toggleCart = () => {
       setShowCart(!showCart);
@@ -129,7 +120,7 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
         <li className={catalogLi}><a href="/catalog">Products</a></li>
         <li><a href="/Cart"><img src={cart} alt="cart" onClick={toggleCart} /></a></li>
 
-        {/* {showCart && <Cart onClose={closeCart} cartItems={cartItems}/>} */}
+        
       </ul>
     </header>
   );
