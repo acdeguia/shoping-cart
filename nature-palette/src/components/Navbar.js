@@ -127,7 +127,7 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
       <ul>
         <li className={homeLi}><a href="/">Home</a></li>
         <li className={catalogLi}><a href="/catalog">Products</a></li>
-        <li><button><a href="/Cart"><img src={cart} alt="cart" onClick={toggleCart} /></a></button></li>
+        <li><a href="/Cart"><img src={cart} alt="cart" onClick={toggleCart} /></a></li>
 
         {/* {showCart && <Cart onClose={closeCart} cartItems={cartItems}/>} */}
       </ul>

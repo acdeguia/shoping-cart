@@ -24,7 +24,7 @@ const Product = () => {
           <p>{product.details}</p>
           <p>₱{product.price}</p>
           <button className="btn" onClick={() => addToCart(product)}>
-            Add to Bag
+            Add to Cart
           </button>
         </div>
       </div>
