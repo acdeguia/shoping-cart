@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import logomark from "../assets/logomark.svg";
 import cart from "../assets/cart.svg";
+import Cart from "./Cart";
 
 function Navbar({ logotypeColor, homeLi, catalogLi }) {
-  const handleCartClick = () => {
-    // Call the toggleCart function in the Product component
-    if (window.toggleCart) {
-      window.toggleCart();
-    }
-  };
+
+  const [showCart, setShowCart] = useState(false);
+    const [cartItems, setCartItems] = useState([]);
+
+    const openCart = () => {
+      setShowCart(true);
+    };
+  
+    const closeCart = () => {
+      setShowCart(false);
+    };
+
+    const toggleCart = () => {
+      setShowCart(!showCart);
+    };
+
   return (
     <header>
       <a href="/">
@@ -116,7 +127,9 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
       <ul>
         <li className={homeLi}><a href="/">Home</a></li>
         <li className={catalogLi}><a href="/catalog">Products</a></li>
-        <li><button onClick={handleCartClick}><img src={cart} alt="cart" /></button></li>
+        <li><button><a href="/Cart"><img src={cart} alt="cart" onClick={toggleCart} /></a></button></li>
+
+        {/* {showCart && <Cart onClose={closeCart} cartItems={cartItems}/>} */}
       </ul>
     </header>
   );

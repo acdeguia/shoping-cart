@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
-import SideNavigation from "./SideNavigation";
+// import Cart from "./Cart";
 
 const Product = () => {
   const location = useLocation();
   const { product } = location.state;
 
-  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
-  const toggleCart = () => {
-    setShowCart(!showCart);
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
   };
 
   return (
@@ -21,13 +22,14 @@ const Product = () => {
         <div>
           <h2>{product.name}</h2>
           <p>{product.details}</p>
-          <button className="btn" onClick={toggleCart}>
+          <p>₱{product.price}</p>
+          <button className="btn" onClick={() => addToCart(product)}>
             Add to Bag
           </button>
         </div>
       </div>
 
-      {showCart && <SideNavigation />}
+      {/* {showCart && <Cart onClose={closeCart} cartItems={cartItems}/>} */}
     </div>
   );
 };
