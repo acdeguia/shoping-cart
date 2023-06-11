@@ -314,3 +314,9 @@ height: 100vh;
 right: 0;
 top: 0px;
 }
+
+.cart-img {
+  border-radius: 2px;
+  width: 70px;
+height: 91px;
+}

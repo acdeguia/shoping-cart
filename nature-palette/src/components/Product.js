@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
-// import Cart from "./Cart";
 
-const Product = () => {
+const Product = ({ handleAddToCart }) => {
   const location = useLocation();
   const { product } = location.state;
 
-  const [cartItems, setCartItems] = useState([]);
-
-
   const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
+    handleAddToCart(product);
   };
 
   return (
@@ -24,12 +20,10 @@ const Product = () => {
           <p>{product.details}</p>
           <p>₱{product.price}</p>
           <button className="btn" onClick={() => addToCart(product)}>
-            Add to Cart
-          </button>
+  Add to Cart
+</button>
         </div>
       </div>
-
-      {/* {showCart && <Cart onClose={closeCart} cartItems={cartItems}/>} */}
     </div>
   );
 };

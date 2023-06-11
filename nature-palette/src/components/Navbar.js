@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logomark from "../assets/logomark.svg";
 import cart from "../assets/cart.svg";
 
 function Navbar({ logotypeColor, homeLi, catalogLi }) {
 
   const [showCart, setShowCart] = useState(false);
-    const [cartItems, setCartItems] = useState([]);
 
     const toggleCart = () => {
       setShowCart(!showCart);
@@ -13,7 +13,7 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
 
   return (
     <header>
-      <a href="/">
+      <Link to="/">
           <div className="logo">
             <img src={logomark} alt="logomark" />
             <svg
@@ -114,13 +114,19 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
               />
             </svg>
           </div>
-      </a>
+          </Link>
       <ul>
-        <li className={homeLi}><a href="/">Home</a></li>
-        <li className={catalogLi}><a href="/catalog">Products</a></li>
-        <li><a href="/Cart"><img src={cart} alt="cart" onClick={toggleCart} /></a></li>
-
-        
+        <li className={homeLi}>
+          <Link to="/">Home</Link>
+        </li>
+        <li className={catalogLi}>
+          <Link to="/catalog">Shop</Link>
+        </li>
+        <li>
+          <Link to="/cart">
+            <img src={cart} alt="cart" onClick={toggleCart} />
+          </Link>
+        </li>
       </ul>
     </header>
   );
