@@ -144,7 +144,7 @@ color: #425944;
   position: relative;
 }
 
-.catalog h1 {
+.catalog h1, .cart h1 {
   font-family: 'ivyMode-regular';
   color: #425944;
 font-weight: 400;
@@ -152,7 +152,7 @@ font-size: 39.06px;
 margin: 36px 0;
 }
 
-.catalog h1 span {
+.catalog h1 span, .cart h1 span {
   font-style: italic;
   color: #B18233;
 }
@@ -311,19 +311,20 @@ letter-spacing: 0.04em !important;
 
 .cart-img {
   border-radius: 2px;
-  width: 70px;
-height: 91px;
+  width: 96px;
+  height: 125px;
 }
 
 .cart-list {
   display: flex;
-  width: 249px;
-height: 95px;
+  width: 350px;
+height: 100px;
 font-family: 'Mulish';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
 color: #425944;
+gap: 16px;
 }
 
 .mycart-summary {
@@ -333,7 +334,8 @@ color: #425944;
 
 .summary {
   width: 264px;
-  height: fit-content;
+  min-height: 362px;
+  max-height: fit-content;
   background: #F4F4EA;
   border-radius: 2px;
   font-family: 'Mulish';
@@ -341,9 +343,82 @@ color: #425944;
   font-size: 16px;
   color: #425944;
   text-align: center;
+  font-weight: 600;
+font-size: 16px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+padding: 25px 0;
 }
 
 .summary h3 {
   font-weight: 700;
   letter-spacing: 0.095em;
+  margin-bottom: 25px;
+}
+
+
+.summary hr {
+  width: 60%;
+  margin: 0 auto;
+  color: #425944;
+  border: 1px solid #425944;
+}
+
+.cart-grp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.qty {
+  display: flex;
+  gap: 24px;
+}
+
+
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-details p {
+  font-weight: 600;
+font-size: 16px;
+}
+
+.trash-btn {
+  width: 21px;
+  height: 26.19px;
+  cursor: pointer;
+}
+
+.qty button {
+  width: 25px;
+  height: 25px;
+cursor: pointer;
+border: 0.145161px solid #000000;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+font-size: 30px;
+border: 0.145161px solid #000000;
+color: #425944;
+background-color: transparent;
+}
+
+.qty button:hover {
+  background-color: #425944;
+  color: #FBFBFB;
+}
+
+.add-minus_btn {
+display: flex;
+gap: 5px;
+}
+
+.item {
+  margin-bottom: 15px;
 }
