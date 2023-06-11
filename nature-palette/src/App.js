@@ -9,8 +9,28 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
-    setCartItems([...cartItems, product]);
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem) {
+      // If the item already exists in the cart, update its quantity
+      const updatedCartItems = cartItems.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+      setCartItems(updatedCartItems);
+    } else {
+      // If the item does not exist in the cart, add it as a new item
+      const newItem = {
+        ...product,
+        quantity: 1,
+      };
+      setCartItems([...cartItems, newItem]);
+    }
   };
   
   useEffect(() => {

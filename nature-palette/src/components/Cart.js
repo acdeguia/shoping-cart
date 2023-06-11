@@ -1,40 +1,97 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const Cart = ({ cartItems, setCartItems }) => {
-  console.log("Cart items:", cartItems);
-
   const handleRemoveFromCart = (productId) => {
-    console.log("Removing from cart:", productId);
     const updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
-    console.log("Updated cart items:", updatedCartItems);
   };
 
-  const calculateTotalPrice = () => {
-    // Calculate the total price of items in the cart
-    const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price), 0);
-    return totalPrice.toFixed(2);
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    const updatedCartItems = cartItems.map((item) => {
+      if (item.id === productId) {
+        return {
+          ...item,
+          quantity: newQuantity,
+        };
+      }
+      return item;
+    });
+    setCartItems(updatedCartItems);
+  };
+
+  const calculateSubTotalPrice = () => {
+    const subTotalPrice = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    return subTotalPrice.toFixed(2);
+  };
+
+  const calculateTotalItems = () => {
+    const totalItems = cartItems.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+    return totalItems;
   };
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className="cart">
+      <Navbar logotypeColor="logo__1" />
+      <h1>
+        <span>My</span> Bag
+      </h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <>
-          {cartItems.map((item) => (
-            <div key={item.id}>
-            <img className='cart-img' src={item.src} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>{item.price}</p>
-              <button onClick={() => handleRemoveFromCart(item.id)}>
-                Remove
-              </button>
-            </div>
-          ))}
-          <p>Total: ₱{calculateTotalPrice()}</p>
-        </>
+        <div className="mycart-summary">
+          <div className='cart-grp-list'>
+            {cartItems.map((item) => (
+              <div className="cart-list" key={item.id}>
+                <img className="cart-img" src={item.src} alt={item.name} />
+                <div>
+                  <h3>{item.name}</h3>
+                  <h3>Qty:</h3>
+                  <div>
+                    <button
+                      onClick={() =>
+                        handleUpdateQuantity(item.id, item.quantity - 1)
+                      }
+                      disabled={item.quantity <= 1}
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() =>
+                        handleUpdateQuantity(item.id, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                  <p>Price: {item.price}</p>
+                  <button onClick={() => handleRemoveFromCart(item.id)}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="summary">
+            <h3>Summary</h3>
+            <p>{calculateTotalItems()} item{calculateTotalItems() > 1 ? 's' : ''}</p>
+            <p>Subtotal: ₱{calculateSubTotalPrice()}</p>
+            <p>Shipping: ₱150.00</p>
+            <hr />
+            <p>
+              Total: ₱{(
+                parseFloat(calculateSubTotalPrice()) + 150
+              ).toFixed(2)}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
