@@ -1,8 +1,14 @@
 import React from "react";
 import Navbar from "./Navbar";
+
 import trash from "../assets/trash.svg";
+import { calculateTotalItems } from '../utils/cartUtils';
+
 
 const Cart = ({ cartItems, setCartItems }) => {
+
+  const totalItems = calculateTotalItems(cartItems);
+
   const handleRemoveFromCart = (productId) => {
     const updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
@@ -29,22 +35,15 @@ const Cart = ({ cartItems, setCartItems }) => {
     return subTotalPrice.toFixed(2);
   };
 
-  const calculateTotalItems = () => {
-    const totalItems = cartItems.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    return totalItems;
-  };
 
   return (
     <div className="cart">
-      <Navbar logotypeColor="logo__1" />
+      <Navbar logotypeColor="logo__1" cartItems={cartItems} />
       <h1>
         <span>My</span> Bag
       </h1>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="empty-cart">Your cart is empty.</p>
       ) : (
         <div className="mycart-summary">
           <div className="cart-grp-list">
@@ -89,7 +88,7 @@ const Cart = ({ cartItems, setCartItems }) => {
           <div className="summary">
             <h3>Summary</h3>
             <p className="item">
-              {calculateTotalItems()} item{calculateTotalItems() > 1 ? "s" : ""}
+              {totalItems} item{totalItems > 1 ? "s" : ""}
             </p>
             <p>Subtotal: ₱{calculateSubTotalPrice()}</p>
             <p>Shipping: ₱150.00</p>
@@ -97,6 +96,10 @@ const Cart = ({ cartItems, setCartItems }) => {
             <p>
               Total: ₱{(parseFloat(calculateSubTotalPrice()) + 150).toFixed(2)}
             </p>
+          
+     
+            <button className="btn checkout-btn">Checkout</button>
+      
           </div>
         </div>
       )}

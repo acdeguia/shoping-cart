@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Product = ({ handleAddToCart }) => {
   const location = useLocation();
   const { product } = location.state;
+  const navigate = useNavigate();
 
   const addToCart = (product) => {
     handleAddToCart(product);
+    navigate("/cart");
   };
 
   return (

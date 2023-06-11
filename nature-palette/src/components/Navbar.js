@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logomark from "../assets/logomark.svg";
-import cart from "../assets/cart.svg";
+import cart  from "../assets/cart.svg";
+
 
 function Navbar({ logotypeColor, homeLi, catalogLi }) {
-
-  const [showCart, setShowCart] = useState(false);
-
-    const toggleCart = () => {
-      setShowCart(!showCart);
-    };
 
   return (
     <header>
@@ -124,7 +119,7 @@ function Navbar({ logotypeColor, homeLi, catalogLi }) {
         </li>
         <li>
           <Link to="/cart">
-            <img src={cart} alt="cart" onClick={toggleCart} />
+            <img src={cart} alt="cart" />
           </Link>
         </li>
       </ul>

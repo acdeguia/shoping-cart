@@ -114,7 +114,7 @@ text-align: justify;
 }
 
 
-.welcome {
+.welcome, .empty-cart {
   font-family: 'Mulish';
 font-weight: 600;
 font-size: 20px;
@@ -185,22 +185,6 @@ margin-top: 8px;
   
 color: rgba(0, 0, 0, 0.6);
 margin-top: 8px;
-/* font-family: "Mulish";
-  font-style: italic;
-font-weight: 400;
-font-size: 14px;
-position: absolute;
-width: 80px;
-height: 80px;
-right: -35px;
-top: -15px;
-background: #FFFFFF;
-border: 0.25px solid #000000;
-border-radius: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center; */
 }
 
 .btn-details {
@@ -215,11 +199,6 @@ border: none;
 color: #FBFBFB;
 }
 
-/* .btn-cart:hover {
-  background-color: #FBFBFB;
-  color: #425944;
-  border: 1px solid #425944;
-} */
 
 .cart-container {
   position: absolute;
@@ -305,10 +284,6 @@ font-size: 25px !important;
 letter-spacing: 0.04em !important;
 }
 
-.cart {
-
-}
-
 .cart-img {
   border-radius: 2px;
   width: 96px;
@@ -334,8 +309,7 @@ gap: 16px;
 
 .summary {
   width: 264px;
-  min-height: 362px;
-  max-height: fit-content;
+  height: 362px;
   background: #F4F4EA;
   border-radius: 2px;
   font-family: 'Mulish';
@@ -349,6 +323,7 @@ display: flex;
 flex-direction: column;
 gap: 12px;
 padding: 25px 0;
+align-items: center;
 }
 
 .summary h3 {
@@ -422,3 +397,11 @@ gap: 5px;
 .item {
   margin-bottom: 15px;
 }
+
+.checkout-btn {
+  width: 163px;
+height: 45px;
+border-radius: 2px;
+}
+
+ 

@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import products from "../data/products";
 
 function Catalog() {
@@ -22,7 +23,7 @@ function Catalog() {
 
   return (
     <div className="catalog">
-      <Navbar logotypeColor={"logo__1"} catalogLi={"catalogLi"} />
+      <Navbar logotypeColor={"logo__1"} catalogLi={"catalogLi"}  />
       <h1>
         <span>Our</span> Plants
       </h1>

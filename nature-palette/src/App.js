@@ -12,7 +12,6 @@ function App() {
     const existingItem = cartItems.find((item) => item.id === product.id);
 
     if (existingItem) {
-      // If the item already exists in the cart, update its quantity
       const updatedCartItems = cartItems.map((item) => {
         if (item.id === product.id) {
           return {
@@ -24,7 +23,6 @@ function App() {
       });
       setCartItems(updatedCartItems);
     } else {
-      // If the item does not exist in the cart, add it as a new item
       const newItem = {
         ...product,
         quantity: 1,
@@ -41,7 +39,6 @@ function App() {
 
   return (
     <div className="app">
-     
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
